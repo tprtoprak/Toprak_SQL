@@ -1,0 +1,18 @@
+select * from EMPLOYEES;
+select * from DEPARTMENTS;
+select * from LOCATIONS;
+select * from COUNTRIES;
+
+--Creating more then two tables
+select FIRST_NAME,LAST_NAME,DEPARTMENT_NAME,CITY,COUNTRY_NAME from EMPLOYEES e join DEPARTMENTS d
+on e.DEPARTMENT_ID = d.DEPARTMENT_ID join LOCATIONS l
+on d.LOCATION_ID = l.LOCATION_ID join COUNTRIES c on l.COUNTRY_ID = c.COUNTRY_ID;
+
+--Using same table with selfJoin
+Select e1.EMPLOYEE_ID,e1.FIRST_NAME,e1.LAST_NAME,e1.MANAGER_ID,e2.FIRST_NAME,e2.LAST_NAME
+from EMPLOYEES e1 left join EMPLOYEES e2 on e1.MANAGER_ID = e2.EMPLOYEE_ID
+order by e1.EMPLOYEE_ID;
+
+select FIRST_NAME from EMPLOYEES
+intersect
+select FIRST_NAME from TOPRAK_CUSTOMER;
